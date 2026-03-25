@@ -83,4 +83,6 @@ Document new variables in this README when they are introduced.
 
 ## CI
 
-Flutter checks for this package are also run from the **monorepo** GitHub Actions when the `frontend/system` submodule pointer is updated (see root `.github/workflows` in `ZhuchkaKeyboards`).
+On push/PR to `dev`, `main`, or `master`, `.github/workflows/flutter_ci.yml` runs `flutter analyze`, `flutter test`, and `flutter build web --release` on Ubuntu (stable SDK).
+
+The **monorepo** `ZhuchkaKeyboards` also runs analyze + test for `frontend/system` when the submodule pointer is updated (see `.github/workflows/flutter-apps-reusable.yml`).
