@@ -6,6 +6,8 @@ Internal / admin UI (**staff console**). This repo targets **web only** (no mobi
 
 **UI / UX requirements:** [`docs/frontend-requirements.md`](https://github.com/ZhuchkaTriplesix/ZhuchkaKeyboards/blob/dev/docs/frontend-requirements.md) in the monorepo (Material 3, OLED `#000000` scaffold, System vs Market differences).
 
+**Theme:** `lib/theme/system_theme.dart` — `buildZhuchkaSystemTheme()`, `ZhuchkaSystemTokens` (`oledBlack` for scaffold).
+
 **Workflow:** one issue → one branch from `dev` → PR into `dev` (Git workflow for the monorepo: [`docs/git-workflow.md`](https://github.com/ZhuchkaTriplesix/ZhuchkaKeyboards/blob/dev/docs/git-workflow.md)).
 
 ---
