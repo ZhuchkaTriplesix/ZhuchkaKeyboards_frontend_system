@@ -3,9 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:zhuchka_system/main.dart';
 
 void main() {
-  testWidgets('home shows app title and baseline copy', (WidgetTester tester) async {
+  testWidgets('dashboard shows baseline copy', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
-    expect(find.text('Zhuchka System'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.text('Dashboard'), findsWidgets);
     expect(find.textContaining('Staff console'), findsOneWidget);
   });
 }
