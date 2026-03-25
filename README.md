@@ -10,6 +10,8 @@ Internal / admin UI (**staff console**). This repo targets **web only** (no mobi
 
 **Routing:** [`go_router`](https://pub.dev/packages/go_router) + shell (`lib/widgets/system_shell.dart`): `NavigationRail` — `/` (dashboard), `/lists` (placeholder), `/settings` (placeholder). Router factory: `lib/app/system_router.dart` (`createSystemRouter()`).
 
+**HTTP:** [`dio`](https://pub.dev/packages/dio) — `createSystemDio()` (`lib/http/system_dio.dart`): timeouts, retry for **GET** on transient failures (`RetryInterceptor`); API errors → `SystemApiException` via `systemApiExceptionFromDio()` (`lib/http/dio_error_mapper.dart`).
+
 **Workflow:** one issue → one branch from `dev` → PR into `dev` (Git workflow for the monorepo: [`docs/git-workflow.md`](https://github.com/ZhuchkaTriplesix/ZhuchkaKeyboards/blob/dev/docs/git-workflow.md)).
 
 ---
@@ -72,12 +74,17 @@ dart analyze
 
 ## Environment and configuration
 
-There is **no** required `dart-define` or `.env` file in the bootstrap app yet. When the HTTP client and auth base URL are wired in, prefer:
+Build-time values use `--dart-define` (and `flutter build web --dart-define=...`):
 
-- **`--dart-define=API_BASE_URL=...`** (and similar keys) for build-time configuration, **or**
-- documented runtime configuration if your deployment requires it.
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `API_BASE_URL` | Base URL for `createSystemDio()` (gateway / auth / future BFF) | `http://127.0.0.1:8000` |
 
-Document new variables in this README when they are introduced.
+Example:
+
+```bash
+flutter run -d chrome --dart-define=API_BASE_URL=https://api.example.com
+```
 
 ---
 
