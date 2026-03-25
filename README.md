@@ -8,6 +8,8 @@ Internal / admin UI (**staff console**). This repo targets **web only** (no mobi
 
 **Theme:** `lib/theme/system_theme.dart` — `buildZhuchkaSystemTheme()`, `ZhuchkaSystemTokens` (`oledBlack` for scaffold).
 
+**Routing:** [`go_router`](https://pub.dev/packages/go_router) + shell (`lib/widgets/system_shell.dart`): `NavigationRail` — `/` (dashboard), `/lists` (placeholder), `/settings` (placeholder). Router factory: `lib/app/system_router.dart` (`createSystemRouter()`).
+
 **Workflow:** one issue → one branch from `dev` → PR into `dev` (Git workflow for the monorepo: [`docs/git-workflow.md`](https://github.com/ZhuchkaTriplesix/ZhuchkaKeyboards/blob/dev/docs/git-workflow.md)).
 
 ---
